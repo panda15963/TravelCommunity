@@ -28,8 +28,8 @@ export default class SignUp extends Component {
             <form className="form-detail" method="post" id="myform">
               <h2>SIGN UP FORM</h2>
               <div className="form-row form-row-1">
-                <label htmlFor="full_name">Full Name</label>
-                <input type="text" name="full_name" id="full_name" className="input-text" />
+                <label htmlFor="user_name">Username</label>
+                <input type="text" name="user_name" id="user_name" className="input-text" />
               </div>
               <div className="form-row form-row-1">
                 <label htmlFor="your_email">Your Email</label>
