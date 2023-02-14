@@ -27,17 +27,11 @@ export default class SignUp extends Component {
             </div>
             <form className="form-detail" method="post" id="myform">
               <h2>SIGN UP FORM</h2>
-              <div className="form-group">
-                <div className="form-row form-row-1">
-                  <label htmlFor="first_name">First Name</label>
-                  <input type="text" name="first_name" id="first_name" className="input-text" />
-                </div>
-                <div className="form-row form-row-1">
-                  <label htmlFor="last_name">Last Name</label>
-                  <input type="text" name="last_name" id="last_name" className="input-text" />
-                </div>
+              <div className="form-row form-row-1">
+                <label htmlFor="full_name">Full Name</label>
+                <input type="text" name="full_name" id="full_name" className="input-text" />
               </div>
-              <div className="form-row">
+              <div className="form-row form-row-1">
                 <label htmlFor="your_email">Your Email</label>
                 <input type="text" name="your_email" id="your_email" className="input-text" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" />
               </div>
