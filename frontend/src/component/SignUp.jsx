@@ -27,7 +27,6 @@ export default class SignUp extends Component {
     };
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.handleCheck = this.handleCheck.bind(this);
   }
   handleChange(event) {
     const target = event.target;

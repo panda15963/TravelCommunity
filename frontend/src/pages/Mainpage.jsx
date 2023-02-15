@@ -10,10 +10,35 @@ import "../assets/css/style.scss";
 import Menubar from "../component/navbar";
 import Footer from "../component/footer";
 export default class Mainpage extends Component {
+	constructor(props) {
+		super(props);
+		console.log("[App.js] Constructor");
+		const token = localStorage.getItem("token");
+		this.state = {
+		  // eslint-disable-next-line
+		  isLogin: token != "null",
+		};
+		console.log("[App.js] token: ", token);
+		console.log("[App.js] isLogin: ", this.state.isLogin);
+		this.doLogin = this.doLogin.bind(this);
+		this.doLogout = this.doLogout.bind(this);
+	  }
+	  doLogin() {
+		console.log("[App.js] doLogin");
+		this.setState({ isLogin: true }, () => {
+		  console.log("[App.js] isLogin after doLogin: ", this.state.isLogin);
+		});
+	  }
+	  doLogout() {
+		console.log("[App.js] doLogout");
+		this.setState({ isLogin: false }, () => {
+		  console.log("[App.js] isLogin after doLogout: ", this.state.isLogin);
+		});
+	  }
 	render() {
 		return (
 			<div>
-				<Menubar />
+				<Menubar doLogout={this.doLogout} isLogin={this.state.isLogin} />
 				<div>
 					<img src={`${process.env.PUBLIC_URL}/img/main/travel.jpg`} alt="" className="img-responsive" />
 					<h1 className="main-text">

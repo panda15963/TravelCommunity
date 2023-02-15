@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import Menubar from "../component/navbar";
 import Footer from "../component/footer";
 import '../assets/css/signIn.scss';
+import axios from 'axios';
 const imageStyle = {
   width: '100%',
   height: '100%',
@@ -16,6 +17,42 @@ const linkStyle = {
   marginBottom: '8px',
 }
 export default class SignUp extends Component {
+  constructor(props) {
+    console.log("[Login.js] Constructor");
+    super(props);
+    this.state = {
+      username: "",
+      password: "",
+    };
+    this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleChange = this.handleChange.bind(this);
+  }
+  handleChange(event) {
+    const target = event.target;
+    this.setState({
+      [target.name]: target.value,
+    });
+  }
+  handleSubmit(event) {
+    event.preventDefault();
+    console.log("[Login.js] handleSubmit");
+    axios
+      .post("http://localhost:8000/mainApp/login/", {
+        username: this.state.username,
+        password: this.state.password,
+      })
+      .then((response) => {
+        if(response.status < 300){
+          console.log("[Login.js] Call props.doLogin");
+          this.props.doLogin(response.data);
+          localStorage.setItem("token", response.data["token"]);
+          localStorage.setItem("username", response.state.username);
+          console.log(response.data);
+          this.props.history.push("/");
+        }
+      }
+    );
+  }
   render() {
     return (
       <>

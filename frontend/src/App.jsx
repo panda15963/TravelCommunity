@@ -25,9 +25,32 @@ import Map from "./pages/RoutingMap/Map";
 //Components
 import SignUp from "./component/SignUp";
 import SignIn from "./component/SignIn";
-import ForgotPw from './component/forgotPw';
 import Write from "./component/bulletinBoard/write.jsx";
 export default class App extends Component {
+  constructor(props){
+    super(props);
+    console.log("[App.js] Constructor");
+    const token = localStorage.getItem("token");
+    this.state = {
+      isLogin: token !== "null",
+    };
+    console.log("[App.js] token : ",token)
+    console.log("[App.js] isLogin : ",this.state.isLogin)
+    this.doLogin = this.doLogin.bind(this);
+    this.doLogout = this.doLogout.bind(this);
+  }
+  doLogin() {
+    console.log("[App.js] doLogin");
+    this.setState({ isLogin: true }, () => {
+      console.log("[App.js] isLogin after doLogin: ", this.state.isLogin);
+    });
+  }
+  doLogout() {
+    console.log("[App.js] doLogout");
+    this.setState({ isLogin: false }, () => {
+      console.log("[App.js] isLogin after doLogout: ", this.state.isLogin);
+    });
+  }
   render() {
     return (
       <Router>
@@ -48,8 +71,7 @@ export default class App extends Component {
             <Route exact path="/Reservations/VacationPackages" element={<VacationPackages />} />
             <Route exact path="/RoutingMap/Map" element={<Map />} />
             <Route exact path="/SignUp" element={<SignUp />} />
-            <Route exact path="/SignIn" element={<SignIn />} />
-            <Route exact path="/ForgotPw" element={<ForgotPw />} />
+            <Route exact path="/SignIn" doLogin={this.doLogin} isLogin={this.state.isLogin} element={<SignIn />} />
             <Route exact path="/Write" element={<Write />} />
           </Routes>
         </div>
