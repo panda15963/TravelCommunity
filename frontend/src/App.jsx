@@ -1,5 +1,5 @@
 //React Libraries
-import React from "react";
+import React, { Component } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 //css files
 import "./assets/css/bootstrap.min.scss";
@@ -27,32 +27,33 @@ import SignUp from "./component/SignUp";
 import SignIn from "./component/SignIn";
 import ForgotPw from './component/forgotPw';
 import Write from "./component/bulletinBoard/write.jsx";
-function App() {
-  return (
-    <Router>
-      <div className="App">
-        <Routes>
-          <Route exact path="/" element={<Mainpage />} />
-          <Route exact path="/Community/Africa" element={<Africa />} />
-          <Route exact path="/Community/Asia" element={<Asia />} />
-          <Route exact path="/Community/Europe" element={<Europe />} />
-          <Route exact path="/Community/NorthAmerica" element={<NorthAmerica />} />
-          <Route exact path="/Community/SouthAmerica" element={<SouthAmerica />} />
-          <Route exact path="/Community/Oceania" element={<Oceania />} />
-          <Route exact path="/Community/Antarctica" element={<Antarctica />} />
-          <Route exact path="/Reservations/Activities" element={<Activities />} />
-          <Route exact path="/Reservations/CarRental" element={<CarRental />} />
-          <Route exact path="/Reservations/Flight" element={<Flight />} />
-          <Route exact path="/Reservations/Hotel" element={<Hotel />} />
-          <Route exact path="/Reservations/VacationPackages" element={<VacationPackages />} />
-          <Route exact path="/RoutingMap/Map" element={<Map />} />
-          <Route exact path="/SignUp" element={<SignUp />} />
-          <Route exact path="/SignIn" element={<SignIn />} />
-          <Route exact path="/ForgotPw" element={<ForgotPw />} />
-          <Route exact path="/Write" element={<Write />} />
-        </Routes>
-      </div>
-    </Router>
-  );
+export default class App extends Component {
+  render() {
+    return (
+      <Router>
+        <div className="App">
+          <Routes>
+            <Route exact path="/" element={<Mainpage />} />
+            <Route exact path="/Community/Africa" element={<Africa />} />
+            <Route exact path="/Community/Asia" element={<Asia />} />
+            <Route exact path="/Community/Europe" element={<Europe />} />
+            <Route exact path="/Community/NorthAmerica" element={<NorthAmerica />} />
+            <Route exact path="/Community/SouthAmerica" element={<SouthAmerica />} />
+            <Route exact path="/Community/Oceania" element={<Oceania />} />
+            <Route exact path="/Community/Antarctica" element={<Antarctica />} />
+            <Route exact path="/Reservations/Activities" element={<Activities />} />
+            <Route exact path="/Reservations/CarRental" element={<CarRental />} />
+            <Route exact path="/Reservations/Flight" element={<Flight />} />
+            <Route exact path="/Reservations/Hotel" element={<Hotel />} />
+            <Route exact path="/Reservations/VacationPackages" element={<VacationPackages />} />
+            <Route exact path="/RoutingMap/Map" element={<Map />} />
+            <Route exact path="/SignUp" element={<SignUp />} />
+            <Route exact path="/SignIn" element={<SignIn />} />
+            <Route exact path="/ForgotPw" element={<ForgotPw />} />
+            <Route exact path="/Write" element={<Write />} />
+          </Routes>
+        </div>
+      </Router>
+    );
+  }
 }
-export default App;
