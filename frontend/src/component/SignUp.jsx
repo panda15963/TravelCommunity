@@ -37,10 +37,10 @@ export default class SignUp extends Component {
   handleSubmit(event) {
     event.preventDefault();
     axios
-      .post("http://localhost:3000/mainApp/register/", {
+      .post("http://localhost:8000/mainApp/register/", {
         username: this.state.username,
-        password: this.state.password,
         email: this.state.email,
+        password: this.state.password,        
         password2: this.state.password2,
       })
       .then((response) => {
@@ -61,11 +61,11 @@ export default class SignUp extends Component {
               <h2>SIGN UP FORM</h2>
               <div className="form-row form-row-1">
                 <label htmlFor="user_name">Username</label>
-                <input type="text" name="user_name" id="user_name" defaultValue={this.state.username} onChange={this.handleChange} className="input-text" required />
+                <input type="text" name="username" id="username" defaultValue={this.state.username} onChange={this.handleChange} className="input-text" required />
               </div>
               <div className="form-row form-row-1">
                 <label htmlFor="your_email">Your Email</label>
-                <input type="text" name="your_email" id="your_email" defaultValue={this.state.email} onChange={this.handleChange} className="input-text" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" />
+                <input type="text" name="email" id="email" defaultValue={this.state.email} onChange={this.handleChange} className="input-text" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" />
               </div>
               <div className="form-row form-row-1 ">
                 <label htmlFor="password">Password</label>
@@ -73,7 +73,7 @@ export default class SignUp extends Component {
               </div>
               <div className="form-row form-row-1">
                 <label htmlFor="comfirm-password">Comfirm Password</label>
-                <input type="password" name="comfirm_password" id="comfirm_password" defaultValue={this.state.password2} onChange={this.handleChange2} className="input-text" required />
+                <input type="password" name="password2" id="password2" defaultValue={this.state.password2} onChange={this.handleChange} className="input-text" required />
                 <Link style={linkStyle} to="/SignIn">Have An Account?</Link>
               </div>
               <div className="form-row-last">
