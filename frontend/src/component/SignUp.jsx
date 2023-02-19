@@ -72,7 +72,7 @@ export default class SignUp extends Component {
                 <input type="password" name="password" id="password" defaultValue={this.state.password} onChange={this.handleChange} className="input-text" required />
               </div>
               <div className="form-row form-row-1">
-                <label htmlFor="comfirm-password">Comfirm Password</label>
+                <label htmlFor="comfirm_password">Comfirm Password</label>
                 <input type="password" name="password2" id="password2" defaultValue={this.state.password2} onChange={this.handleChange} className="input-text" required />
                 <Link style={linkStyle} to="/SignIn">Have An Account?</Link>
               </div>

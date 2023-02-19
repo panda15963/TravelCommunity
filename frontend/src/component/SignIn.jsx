@@ -37,7 +37,7 @@ export default class SignUp extends Component {
     event.preventDefault();
     console.log("[Login.js] handleSubmit");
     axios
-      .post("http://localhost:8000/mainApp/login/", {
+      .post("http://localhost:8000/users/login/", {
         username: this.state.username,
         password: this.state.password,
       })
@@ -62,11 +62,11 @@ export default class SignUp extends Component {
             <div>
               <img style={imageStyle} src={`${process.env.PUBLIC_URL}/img/components/signin.png`} alt=""/>
             </div>
-            <form className="form-detail" method="post" id="myform">
+            <form className="form-detail" id="myform">
               <h2>SIGN IN FORM</h2>
               <div className="form-row">
-                <label htmlFor="your_email">Your Email</label>
-                <input type="text" name="your_email" id="your_email" className="input-text" required pattern="[^@]+@[^@]+.[a-zA-Z]{2,6}" />
+                <label htmlFor="username">Username</label>
+                <input type="text" name="username" id="your_email" className="input-text" required/>
               </div>
               <div className="form-row form-row-1 ">
                 <label htmlFor="password">Password</label>
