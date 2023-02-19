@@ -37,7 +37,7 @@ export default class SignUp extends Component {
   handleSubmit(event) {
     event.preventDefault();
     axios
-      .post("http://localhost:8000/mainApp/register/", {
+      .post("http://localhost:8000/users/register/", {
         username: this.state.username,
         email: this.state.email,
         password: this.state.password,        
